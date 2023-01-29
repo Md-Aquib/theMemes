@@ -1,0 +1,50 @@
+<%- include('./partials/header') -%>
+
+<div class="container">
+    <% if(memeData.length === 0 ){ %>
+        <div class="reload">
+            <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow spin-2" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <h1>Reload the Page</h1>
+        </div>
+    <% } else { %>
+    <div class="row justify-content-center" style="text-align: center;">
+        <div class="col-lg-6 col-md-6 col-12 body-left">
+            <div class="card" id="top-card">
+                <div class="card-body">
+                  <p>Our Top Picks 🚀</p>
+                </div>
+            </div>
+            <% memeData.forEach( meme => { %>
+                <div class="card">
+                    <img class="card-img-top" src="<%= meme.url %>" alt="image">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= meme.name %></h5>
+                    </div>
+                </div>        
+            <% }); %>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 body-right">
+            <div class="card" id="trend-card">
+                <div class="card-body">
+                  <h5 class="card-title">Trending Memes</h5>
+                  <hr>
+                  <% for(let i=0; i<=5; i++){ %>
+                    <p class="card-text"><%= memeData[i].name %></p>
+                  <% }; %>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>   
+</div>
+
+
+<%- include('./partials/footer') -%>
