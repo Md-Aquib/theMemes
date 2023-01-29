@@ -4,7 +4,6 @@ const ejs = require("ejs");
 var favicon = require('serve-favicon');
 var path = require('path');
 const {getMeme} = require('./fetchMeme');
-const { setTimeout } = require("timers/promises");
 
 const app = express();
 

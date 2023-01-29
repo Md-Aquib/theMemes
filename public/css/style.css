@@ -74,7 +74,7 @@ body{
 }
 
 .offcanvas-title{
-    margin-left:45%;
+    margin-left:35%;
     font-family: 'Marck Script', cursive;
     font-size:x-large;
     font-weight:500;
@@ -89,9 +89,10 @@ body{
     border-radius:50%;
 }
 
-.offcanvas-backdrop.show {
-    opacity: .0;
-}
+.offcanvas-btn:focus,.offcanvas-btn:visited,.offcanvas-btn:active{
+    background: none;
+    outline: none;
+  }
 
 .toggle{
     width:30px;
@@ -143,14 +144,20 @@ body{
 
 .card{
     margin-bottom:25px;
+    background: #222222;
+    color:#fff;
 }
 
-#trend-card{
+.trend-card{
     border: none;
     background: #222222;
     color: #fff;
     margin-top:20px;
     text-align: left;
+}
+
+#top-10-card{
+    top:80px;
 }
 
 @media (max-width:767px){
