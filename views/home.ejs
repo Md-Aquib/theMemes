@@ -17,24 +17,47 @@
     <% } else { %>
     <div class="row justify-content-center" style="text-align: center;">
         <div class="col-lg-6 col-md-6 col-12 body-left">
-            <div class="card" id="top-card">
-                <div class="card-body">
-                  <p>Our Top Picks 🚀</p>
-                </div>
-            </div>
-            <% memeData.forEach( meme => { %>
-                <div class="card">
-                    <img class="card-img-top" src="<%= meme.url %>" alt="image">
-                    <hr>
+            <% if (word) { %>
+                <div class="card" id="top-card">
                     <div class="card-body">
-                      <h5 class="card-title"><%= meme.name %></h5>
-                      <div style="display: flex; justify-content: space-between;">
-                        <p>❤ <%= meme.width/10 %>k  </p>
-                        <p>😂 <%= meme.height/10 %>k</p>
-                      </div>
+                      <p>Search Result For <%= word %> </p>
                     </div>
-                </div>        
-            <% }); %>
+                </div>
+                <% memeData.forEach( meme => { %>
+                    <% if (_.lowerCase(meme.name).includes(word)) { %>
+                        <div class="card">
+                            <img class="card-img-top" src="<%= meme.url %>" alt="image">
+                            <hr>
+                            <div class="card-body">
+                              <h5 class="card-title"><%= meme.name %></h5>
+                              <div style="display: flex; justify-content: space-between;">
+                                <p>❤ <%= meme.width/10 %>k  </p>
+                                <p>😂 <%= meme.height/10 %>k</p>
+                              </div>
+                            </div>
+                        </div>
+                    <% } %>               
+                <% }); %>
+            <% } else { %>
+                <div class="card" id="top-card">
+                    <div class="card-body">
+                      <p>Our Top Picks 🚀</p>
+                    </div>
+                </div>
+                <% memeData.forEach( meme => { %>
+                    <div class="card">
+                        <img class="card-img-top" src="<%= meme.url %>" alt="image">
+                        <hr>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= meme.name %></h5>
+                          <div style="display: flex; justify-content: space-between;">
+                            <p>❤ <%= meme.width/10 %>k  </p>
+                            <p>😂 <%= meme.height/10 %>k</p>
+                          </div>
+                        </div>
+                    </div>        
+                <% }); %>
+            <% } %>        
         </div>
         <div class="col-lg-6 col-md-6 col-12 body-right">
             <div class="card trend-card">
